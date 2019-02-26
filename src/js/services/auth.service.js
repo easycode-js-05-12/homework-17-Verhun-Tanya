@@ -14,6 +14,16 @@ export class AuthService {
                     resolve(response);
                 })
                 .catch((err) => reject(err));
+        })
+    }
+
+    signup(data) { 
+        const http = new Http(); 
+       
+        return new Promise((resolve,reject) => {
+            http.post(`${ENV.apiUrl}/public/auth/signup`, data) 
+                .then((response) => resolve(response))
+                .catch((err) => reject(err));
         });
     }
 }
